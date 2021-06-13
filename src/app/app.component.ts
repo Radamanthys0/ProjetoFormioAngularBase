@@ -16,16 +16,37 @@ export class AppComponent {
     this.form = {
       components: [
         {
-          label: 'teste',
-          mask: false,
-          spellcheck: true,
-          tableView: false,
-          inputFormat: 'plain',
-          key: 'teste',
-          type: 'meuComponente',
-          placeholder:
-            'Repare que a opcao de placeholder vai aparecer dentro do builder',
+          type: 'estadoCidade',
+          label: '',
+          key: 'estadoCidade1',
+          customOptions: {
+            array1: [
+              {
+                label: 'Minas',
+                value: 'minas',
+              },
+              {
+                label: 'Rio de Janeiro',
+                value: 'rioDeJaneiro',
+              },
+            ],
+            array2: [
+              {
+                label: 'Belo Horizonte',
+                value: '{"cidade":"beloHorizonte", "estado":"minas"}',
+              },
+              {
+                label: 'Rio Acima',
+                value: '{ "cidade":"rioAcima", "estado":"minas"}',
+              },
+              {
+                label: 'Rio de Janeiro',
+                value: '{ "cidade":"rio", "estado":"rioDeJaneiro"}',
+              },
+            ],
+          },
           input: true,
+          tableView: false,
         },
       ],
     };

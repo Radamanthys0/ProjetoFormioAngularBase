@@ -1,0 +1,17 @@
+<p>estado-cidade works!</p>
+
+<button (click)="ver()">ver conteúdo dos arrays</button>
+
+<form [formGroup]="formulario">
+  <select name="selectArr" formControlName="array1">
+    <option [value]="item.value" *ngFor="let item of array1">
+      {{ item.label }}
+    </option>
+  </select>
+
+  <select name="selectArr" formControlName="array2">
+    <option [value]="item.value" *ngFor="let item of segundoArrayDependente">
+      {{ item.label }}
+    </option>
+  </select>
+</form>

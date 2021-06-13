@@ -10,10 +10,13 @@ import { AppComponent } from './app.component';
 import { PrismService } from './PrismService';
 import { MeuComponenteComponent } from './meu-componente/meu-componente.component';
 import { registerMeuComponente } from './meu-componente/meu-componente.formio';
+import { EstadoCidadeComponent } from './estado-cidade/estado-cidade.component';
+import { registerEstadoCidadeComponent } from './estado-cidade/estado-cidade.formio';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, MeuComponenteComponent],
-  imports: [BrowserModule, AppRoutingModule, FormioModule],
+  declarations: [AppComponent, MeuComponenteComponent, EstadoCidadeComponent],
+  imports: [BrowserModule, AppRoutingModule, FormioModule, ReactiveFormsModule],
   providers: [PrismService, { provide: FormioAppConfig, useValue: AppConfig }],
   bootstrap: [AppComponent],
   entryComponents: [MeuComponenteComponent], // talvez não seja necessário por conta do Ivy
@@ -21,5 +24,6 @@ import { registerMeuComponente } from './meu-componente/meu-componente.formio';
 export class AppModule {
   constructor(injector: Injector) {
     registerMeuComponente(injector);
+    registerEstadoCidadeComponent(injector);
   }
 }
