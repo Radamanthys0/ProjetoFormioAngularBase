@@ -14,8 +14,8 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   //  template: 'input', // Optional: define a template for the element. Default: input
   //  changeEvent: 'valueChange', // Optional: define the changeEvent when the formio updates the value in the state. Default: 'valueChange',
   //  editForm: Components.components.textfield.editForm, // Optional: define the editForm of the field. Default: the editForm of a textfield
-  editForm: Components.components.button.editForm, // Optional: define the editForm of the field. Default: the editForm of a textfield
   // editForm: Components.components.file.editForm, // Optional: define the editForm of the field. Default: the editForm of a textfield
+  editForm: minimalEditForm, // Optional: define the editForm of the field. Default: the editForm of a textfield
   //  documentation: '', // Optional: define the documentation of the field
   //  weight: 0, // Optional: define the weight in the builder group
   //  schema: {}, // Optional: define extra default schema for the field
@@ -30,4 +30,50 @@ export function registerMeuComponente(injector: Injector) {
     MeuComponenteComponent,
     injector
   );
+}
+
+export function minimalEditForm() {
+  return {
+    components: [
+      { key: 'type', type: 'hidden' },
+      {
+        weight: 0,
+        type: 'textfield',
+        input: true,
+        key: 'label',
+        label: 'Nome do componente',
+        placeholder: 'Label',
+        validate: {
+          required: false,
+        },
+      },
+      {
+        weight: 10,
+        type: 'textfield',
+        input: true,
+        key: 'key',
+        label: 'Field Code',
+        placeholder: 'Field Code',
+        tooltip: 'The code/key/ID/name of the field.',
+        validate: {
+          required: true,
+          maxLength: 128,
+          pattern: '[A-Za-z]\\w*',
+          patternMessage:
+            'The property name must only contain alphanumeric characters, underscores and should only be started by any letter character.',
+        },
+      },
+      {
+        weight: 20,
+        type: 'textfield',
+        input: true,
+        key: 'customOptions.myOption',
+        label: 'My Custom Option',
+        placeholder: 'My Custom Option',
+        validate: {
+          required: true,
+        },
+      },
+    ],
+  };
 }
