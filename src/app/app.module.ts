@@ -8,11 +8,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrismService } from './PrismService';
+import { MeuComponenteComponent } from './meu-componente/meu-componente.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MeuComponenteComponent],
   imports: [BrowserModule, AppRoutingModule, FormioModule],
   providers: [PrismService, { provide: FormioAppConfig, useValue: AppConfig }],
   bootstrap: [AppComponent],
+  entryComponents: [MeuComponenteComponent],
 })
 export class AppModule {}
