@@ -1,6 +1,9 @@
 import { MeuComponenteComponent } from './meu-componente.component';
 import { Injector } from '@angular/core';
-import { registerCustomFormioComponent } from 'projects/angular-formio/src';
+import {
+  Components,
+  registerCustomFormioComponent,
+} from 'projects/angular-formio/src';
 import { FormioCustomComponentInfo } from './../../../projects/angular-formio/src/elements.common';
 const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   type: 'meuComponente', // custom type. Formio will identify the field with this type.
@@ -11,12 +14,14 @@ const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   //  template: 'input', // Optional: define a template for the element. Default: input
   //  changeEvent: 'valueChange', // Optional: define the changeEvent when the formio updates the value in the state. Default: 'valueChange',
   //  editForm: Components.components.textfield.editForm, // Optional: define the editForm of the field. Default: the editForm of a textfield
+  editForm: Components.components.button.editForm, // Optional: define the editForm of the field. Default: the editForm of a textfield
+  // editForm: Components.components.file.editForm, // Optional: define the editForm of the field. Default: the editForm of a textfield
   //  documentation: '', // Optional: define the documentation of the field
   //  weight: 0, // Optional: define the weight in the builder group
   //  schema: {}, // Optional: define extra default schema for the field
   //  extraValidators: [], // Optional: define extra validators  for the field
   //  emptyValue: null, // Optional: the emptyValue of the field
-  //  fieldOptions: ['values'], // Optional: explicit field options to get as `Input` from the schema (may edited by the editForm)
+  // fieldOptions: ['values', 'Label'], // Optional: explicit field options to get as `Input` from the schema (may edited by the editForm)
 };
 
 export function registerMeuComponente(injector: Injector) {
