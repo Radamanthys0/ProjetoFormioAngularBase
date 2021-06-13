@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { FormioCustomComponent } from './../../../projects/angular-formio/src/elements.common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-meu-componente',
   templateUrl: './meu-componente.component.html',
-  styleUrls: ['./meu-componente.component.scss']
+  styleUrls: ['./meu-componente.component.scss'],
 })
-export class MeuComponenteComponent implements OnInit {
+export class MeuComponenteComponent implements FormioCustomComponent<number> {
+  @Input()
+  value: number;
 
-  constructor() { }
+  @Output()
+  valueChange = new EventEmitter<number>();
 
-  ngOnInit(): void {
-  }
-
+  @Input()
+  disabled: boolean;
 }
