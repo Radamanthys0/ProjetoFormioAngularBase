@@ -46,4 +46,8 @@ export class AppComponent {
   ngAfterViewInit() {
     this.prism.init();
   }
+
+  customEvent(event) {
+    console.log(event);
+  }
 }

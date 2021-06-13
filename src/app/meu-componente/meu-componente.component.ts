@@ -1,4 +1,7 @@
-import { FormioCustomComponent } from './../../../projects/angular-formio/src/elements.common';
+import {
+  FormioCustomComponent,
+  FormioEvent,
+} from './../../../projects/angular-formio/src/elements.common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -18,4 +21,14 @@ export class MeuComponenteComponent implements FormioCustomComponent<number> {
 
   @Input() placeholder: string;
   @Input() myOption: string;
+
+  @Output()
+  formioEvent = new EventEmitter<FormioEvent>();
+  // https://github.com/formio/angular/pull/443
+  emitirEvento() {
+    this.formioEvent.emit({
+      eventName: 'customEvent',
+      data: { teste: 'teste' },
+    });
+  }
 }
