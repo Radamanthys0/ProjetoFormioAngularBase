@@ -15,4 +15,6 @@ export class MeuComponenteComponent implements FormioCustomComponent<number> {
 
   @Input()
   disabled: boolean;
+
+  @Input() placeholder: string;
 }

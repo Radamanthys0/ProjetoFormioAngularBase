@@ -13,7 +13,22 @@ export class AppComponent {
   public form: Object;
   public refreshForm: EventEmitter<FormioRefreshValue> = new EventEmitter();
   constructor(public prism: PrismService) {
-    this.form = { components: [] };
+    this.form = {
+      components: [
+        {
+          label: 'teste',
+          mask: false,
+          spellcheck: true,
+          tableView: false,
+          inputFormat: 'plain',
+          key: 'teste',
+          type: 'meuComponente',
+          placeholder:
+            'Repare que a opcao de placeholder vai aparecer dentro do builder',
+          input: true,
+        },
+      ],
+    };
   }
 
   onChange(event) {
