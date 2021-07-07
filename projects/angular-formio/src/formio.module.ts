@@ -8,6 +8,7 @@ import { FormioAlertsComponent } from './components/alerts/formio.alerts.compone
 import { FormioLoaderComponent } from './components/loader/formio.loader.component';
 import { CustomTagsService } from './custom-component/custom-tags.service';
 import { FormioBaseComponent } from './FormioBaseComponent';
+import { MeuComponenteModule } from './meu-componente/meu-componente.module';
 
 @NgModule({
   declarations: [
@@ -16,24 +17,16 @@ import { FormioBaseComponent } from './FormioBaseComponent';
     FormBuilderComponent,
     FormioLoaderComponent,
     FormioAlertsComponent,
-    ParseHtmlContentPipe
+    ParseHtmlContentPipe,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule, MeuComponenteModule],
   exports: [
     FormioComponent,
     FormBuilderComponent,
     FormioLoaderComponent,
-    FormioAlertsComponent
+    FormioAlertsComponent,
   ],
-  providers: [
-    FormioAlerts,
-    CustomTagsService
-  ],
-  entryComponents: [
-    FormioComponent,
-    FormBuilderComponent
-  ]
+  providers: [FormioAlerts, CustomTagsService],
+  entryComponents: [FormioComponent, FormBuilderComponent],
 })
 export class FormioModule {}

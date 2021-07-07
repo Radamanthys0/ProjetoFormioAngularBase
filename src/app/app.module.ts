@@ -1,3 +1,4 @@
+import { MeuComponenteModule } from './meu-componente/meu-componente.module';
 import { AppConfig } from './config';
 import { FormioAppConfig } from './../../projects/angular-formio/src/formio.config';
 import { FormioModule } from './../../projects/angular-formio/src/formio.module';
@@ -13,17 +14,24 @@ import { registerMeuComponente } from './meu-componente/meu-componente.formio';
 import { EstadoCidadeComponent } from './estado-cidade/estado-cidade.component';
 import { registerEstadoCidadeComponent } from './estado-cidade/estado-cidade.formio';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Pagina2Component } from './pagina2/pagina2.component';
+import { Pagina1Component } from './pagina1/pagina1.component';
 
 @NgModule({
-  declarations: [AppComponent, MeuComponenteComponent, EstadoCidadeComponent],
-  imports: [BrowserModule, AppRoutingModule, FormioModule, ReactiveFormsModule],
+  declarations: [AppComponent, EstadoCidadeComponent, Pagina2Component, Pagina1Component],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormioModule,
+    ReactiveFormsModule,
+    // MeuComponenteModule,
+  ],
   providers: [PrismService, { provide: FormioAppConfig, useValue: AppConfig }],
   bootstrap: [AppComponent],
-  entryComponents: [MeuComponenteComponent], // talvez não seja necessário por conta do Ivy
 })
 export class AppModule {
-  constructor(injector: Injector) {
-    registerMeuComponente(injector);
-    registerEstadoCidadeComponent(injector);
-  }
+  // constructor(injector: Injector) {
+  //   // registerMeuComponente(injector);
+  //   registerEstadoCidadeComponent(injector);
+  // }
 }

@@ -5,6 +5,7 @@ import {
   registerCustomFormioComponent,
 } from 'projects/angular-formio/src';
 import { FormioCustomComponentInfo } from '../../../projects/angular-formio/src/elements.common';
+
 const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   type: 'estadoCidade', // custom type. Formio will identify the field with this type.
   selector: 'estado-cidade-componente', // custom selector. Angular Elements will create a custom html tag with this selector
