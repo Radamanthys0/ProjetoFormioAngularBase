@@ -1,10 +1,7 @@
 import { MeuComponenteComponent } from './meu-componente.component';
 import { Injector } from '@angular/core';
-import {
-  Components,
-  registerCustomFormioComponent,
-} from 'projects/angular-formio/src';
 import { FormioCustomComponentInfo } from '../elements.common';
+import { registerCustomFormioComponent } from '../custom-component/register-custom-component';
 const COMPONENT_OPTIONS: FormioCustomComponentInfo = {
   type: 'meuComponente', // custom type. Formio will identify the field with this type.
   selector: 'meu-componente', // custom selector. Angular Elements will create a custom html tag with this selector
